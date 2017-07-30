@@ -1,0 +1,152 @@
+* {
+	margin: 0px;
+	box-sizing: border-box;
+}
+#todolist {
+	margin: 200px auto auto auto;
+	width: 300px;
+	text-align: center;
+}
+h1 {
+	margin-bottom: 20px;
+}
+input[type="text"] {
+	margin-bottom: 20px;
+}
+.todoItem {
+	position: relative;
+	text-align: left;
+	height: 50px;
+	margin-bottom: 0px;
+	border-left: 4px solid #fff;
+	padding-left: 10px;
+	background-color: #f4f4f4;
+}
+.todoItem:hover {
+	border-left: 4px solid #1ac5fa;
+}
+.todoItem > input {
+	height: 30px;
+	width: 30px;
+	margin-top: 5px;
+}
+
+.finished {
+	border-radius: 6px;
+	background-color: rgba(38, 169, 100, .6);
+}
+
+/*-------------checkbox flip stylesheet--------------*/
+.switch {
+  width: 83.33%;
+  height: 40px;
+  position: relative;
+  top: 5px;
+  display: inline-block;
+  margin-left: 0px;
+}
+.flipper {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  top: 0px;
+  right: 0px;
+  	-webkit-transition: 0.4s;
+	-webkit-transform-style: preserve-3d;
+
+	-moz-transition: 0.4s;
+	-moz-transform-style: preserve-3d;
+  
+  -o-transition: 0.4s;
+	-o-transform-style: preserve-3d;
+
+	transition: 0.4s;
+	transform-style: preserve-3d;
+}
+.switch > input { display: none;}
+
+.switch > input:checked + div.flipper {
+		-webkit-transform: rotateX(180deg);
+		-moz-transform: rotateX(180deg);
+    -o-transform: rotateX(180deg);
+		transform: rotateX(180deg);
+}
+.front, .back {
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+  	-o-backface-visibility: hidden;
+	backface-visibility: hidden;
+  
+  	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+.back {
+	-webkit-transform: rotateX(180deg);
+	-moz-transform: rotateX(180deg);
+  	-o-transform: rotateX(180deg);
+	transform: rotateX(180deg);
+ }
+ .checkbox {
+   border: 4px solid #aaa;
+   border-radius: 12px;
+   width: 40px;
+   height: 40px;
+   display: inline-block;
+ }
+ .front > p , .back > p {
+ 	height: 40px;
+ 	width: 180px;
+	line-height: 40px;
+	display: inline-block;
+	font-size: 16px;
+	vertical-align: top;
+	padding-left: 10px;
+}
+
+
+/*--------delete button stylesheet------------*/
+.xButton {
+  /*display: none;*/
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  transition: transform 0.5s ease;
+  cursor: pointer;
+}
+.xButton:hover {
+  transform: rotate(90deg);
+}
+.xButton:hover > div {
+  box-shadow:0px 0px 1px 1px rgba(87,168,217,.8);
+}
+.xButton:hover > div.backslash {
+  z-index: -1;
+}
+.backslash, .frontslash {
+  width: 100%;
+  background: red;
+  height: 6px;
+  top: 50%;
+  margin-top: -5px;
+  position: absolute;
+  border-radius: 2px;
+  box-shadow:0px 0px 2px 1px rgba(150,150,150,.7);
+  transition: box-shadow 0.9s ease;
+}
+.backslash {
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  z-index: 2;
+}
+.frontslash {
+  -ms-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+} 

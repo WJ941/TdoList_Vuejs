@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Todo List</title>
+		<meta charset="UTF-8">
+		<script src="https://unpkg.com/vue"></script>
+		<link rel="stylesheet" href="index.css">
+	</head>
+	<body>
+		<div id="todolist">
+			<h1>Todo List</h1>
+			<input v-model="newItemtext" type="text">
+			<button v-on:click="addNewItem">添加</button>
+			<!-- <ol> -->
+				<todo-item
+				v-for="(item,index) in todolist"
+				v-bind:todo="item"
+				v-bind:key=item.id
+				v-bind:index=item.index 
+				v-on:mouseover.native="item.showXBtn" v-on:mouseout.native="item.hideXBtn"
+				v-on:delete-this-item="deleteItem(item.index)">
+				</todo-item>
+			<!-- </ol> -->
+			<p>{{newItemtext}}</p>
+		</div>
+		
+	</body>
+	<script src="index.js"></script>
+</html>
