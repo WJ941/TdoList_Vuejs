@@ -9,19 +9,22 @@
 	<body>
 		<div id="todolist">
 			<h1>Todo List</h1>
-			<input v-model="newItemtext" type="text">
-			<button v-on:click="addNewItem">添加</button>
-			<!-- <ol> -->
+			<div class="maininput">
+				<input v-model="newItemtext" type="text" >
+				<button v-on:click="addNewItem" class="svgBtn">
+					<svg width="26" height="26" version="1.1" xmlns="http://www.w3.org/2000/svg">
+						<polyline points="13 0, 13 26, 13 13, 0 13, 26 13" stroke="#1ac5ff" fill="transparent" stroke-width="4"/>
+					</svg>
+				</button>	
+			</div>
 				<todo-item
-				v-for="(item,index) in todolist"
-				v-bind:todo="item"
-				v-bind:key=item.id
-				v-bind:index=item.index 
-				v-on:mouseover.native="item.showXBtn" v-on:mouseout.native="item.hideXBtn"
-				v-on:delete-this-item="deleteItem(item.index)">
+					v-for="(item,index) in todolist"
+					v-bind:todo="item"
+					v-bind:key=item.id
+					v-bind:index=index 
+					v-on:mouseover.native="item.showXBtn" v-on:mouseout.native="item.hideXBtn"
+					v-on:delete-this-item="deleteItem(index)">
 				</todo-item>
-			<!-- </ol> -->
-			<p>{{newItemtext}}</p>
 		</div>
 		
 	</body>

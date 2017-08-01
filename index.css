@@ -13,24 +13,84 @@ h1 {
 input[type="text"] {
 	margin-bottom: 20px;
 }
+.maininput {
+	position: relative;
+	height: 30px;
+	line-height: 30px;
+	width: 100%;
+	margin-bottom: 10px;
+	border: none;
+	text-align: left;
+	transition: box-shadow  200ms cubic-bezier(0.4, 0.0, 0.2, 1);
+	box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.16),
+	0px 0px 0px 1px rgba(0,0,0,0.08);
+}
+.maininput:hover,
+.maininput:focus {
+	box-shadow: 0px 3px 8px 0px rgba(0,0,0,0.2),
+	0px 0px 0px 1px rgba(0,0,0,0.08);
+	outline: none;
+}
+.maininput > input {
+	height: 100%;
+	width: 73.33%;
+	border: none;
+	padding: 0 0 0 10px;
+	vertical-align: top;
+}
+.maininput > input:focus {
+	outline: none;
+}
+.svgBtn {
+	border: none;
+	padding: 0;
+	background: transparent;
+	position: absolute;
+	right: 10px;
+	top: 2px;
+	height: 26px;
+	cursor: pointer;
+}
+.svgBtn:focus {
+	outline: none;
+}
 .todoItem {
 	position: relative;
 	text-align: left;
 	height: 50px;
-	margin-bottom: 0px;
-	border-left: 4px solid #fff;
+	margin-bottom: 6px;
 	padding-left: 10px;
-	background-color: #f4f4f4;
+	background-color: rgba(200,200,200,0.1);
+	transition: box-shadow  200ms cubic-bezier(0.4, 0.0, 0.2, 1);
+	box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.16),
+	0px 0px 0px 1px rgba(0,0,0,0.08);
 }
 .todoItem:hover {
-	border-left: 4px solid #1ac5fa;
+	box-shadow: 0px 3px 8px 0px rgba(0,0,0,0.2),
+	0px 0px 0px 1px rgba(0,0,0,0.08);
 }
 .todoItem > input {
 	height: 30px;
 	width: 30px;
 	margin-top: 5px;
 }
-
+.fade-enter-active {
+	animation: myfade 0.5s reverse;
+}
+.fade-leave-active {
+	animation: myfade 0.5s;
+}
+@keyframes myfade {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.25);
+	}
+	100% {
+		transform: scale(0);
+	}
+}
 .finished {
 	border-radius: 6px;
 	background-color: rgba(38, 169, 100, .6);

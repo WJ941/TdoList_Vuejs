@@ -1,6 +1,7 @@
 Vue.component('todo-item',{
 	props:['todo'],
 	template: `
+	<transition name="fade">
 	<div class="todoItem">
 		<label class="switch">
 		  <input type="checkbox" v-model="todo.isFinished">
@@ -20,7 +21,8 @@ Vue.component('todo-item',{
 			<div class="backslash"></div>
 		    <div class="frontslash"></div>
 		 </div>
-	</div>`,
+	</div>
+	</transition>`,
 	methods: {
 		deleteItem: function() {
 			this.$emit("delete-this-item");
@@ -67,7 +69,7 @@ var app = new Vue({
 				this.todolist.push(this.createNewItem(this.newItemtext));
 			}
 		},
-		createNewItem(str) {
+		createNewItem: function(str) {
 			return {
 				id: this.todolist.length,
 				text: str,
@@ -81,8 +83,8 @@ var app = new Vue({
 				}
 			}
 		},
-		deleteItem(index){
-			this.todolist.splice(index,1);
+		deleteItem: function(index){
+			this.todolist.splice(index,1);console.log("index",index);
 		}
 	}
 })
