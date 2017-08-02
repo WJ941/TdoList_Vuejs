@@ -9,13 +9,13 @@
 	<body>
 		<div id="todolist">
 			<h1>Todo List</h1>
-			<div class="maininput">
-				<input v-model="newItemtext" type="text" >
+			<div class="maininput hover-shadow"  v-on:onfocus.native="inputFocused" v-bind:class=" { focus_shadow: isInputFocused } ">
+				<input v-model="newItemtext" type="text" v-on:keyup="enterNewItem" >
 				<button v-on:click="addNewItem" class="svgBtn">
 					<svg width="26" height="26" version="1.1" xmlns="http://www.w3.org/2000/svg">
 						<polyline points="13 0, 13 26, 13 13, 0 13, 26 13" stroke="#1ac5ff" fill="transparent" stroke-width="4"/>
 					</svg>
-				</button>	
+				</button>
 			</div>
 				<todo-item
 					v-for="(item,index) in todolist"

@@ -13,6 +13,18 @@ h1 {
 input[type="text"] {
 	margin-bottom: 20px;
 }
+.hover-shadow {
+	transition: box-shadow  200ms cubic-bezier(0.4, 0.0, 0.2, 1);
+	box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.16),
+	0px 0px 0px 1px rgba(0,0,0,0.08);
+}
+.focus_shadow:focus,
+.hover-shadow:hover {
+	box-shadow: 0px 3px 8px 0px rgba(0,0,0,0.2),
+	0px 0px 0px 1px rgba(0,0,0,0.08);
+	outline: none;
+}
+
 .maininput {
 	position: relative;
 	height: 30px;
@@ -21,15 +33,6 @@ input[type="text"] {
 	margin-bottom: 10px;
 	border: none;
 	text-align: left;
-	transition: box-shadow  200ms cubic-bezier(0.4, 0.0, 0.2, 1);
-	box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.16),
-	0px 0px 0px 1px rgba(0,0,0,0.08);
-}
-.maininput:hover,
-.maininput:focus {
-	box-shadow: 0px 3px 8px 0px rgba(0,0,0,0.2),
-	0px 0px 0px 1px rgba(0,0,0,0.08);
-	outline: none;
 }
 .maininput > input {
 	height: 100%;
@@ -50,9 +53,15 @@ input[type="text"] {
 	top: 2px;
 	height: 26px;
 	cursor: pointer;
+	transition: transform 0.5s ease;
 }
-.svgBtn:focus {
+.svgBtn:focus,
+.svgBtn:hover {
 	outline: none;
+	background: rgba(200,200,200,0.2);
+	border-radius: 6px;
+	transform: rotate(90deg);
+	box-shadow: 0px 0px 3px 0px rgba(0,0,0,0.2);
 }
 .todoItem {
 	position: relative;
@@ -61,14 +70,8 @@ input[type="text"] {
 	margin-bottom: 6px;
 	padding-left: 10px;
 	background-color: rgba(200,200,200,0.1);
-	transition: box-shadow  200ms cubic-bezier(0.4, 0.0, 0.2, 1);
-	box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.16),
-	0px 0px 0px 1px rgba(0,0,0,0.08);
 }
-.todoItem:hover {
-	box-shadow: 0px 3px 8px 0px rgba(0,0,0,0.2),
-	0px 0px 0px 1px rgba(0,0,0,0.08);
-}
+
 .todoItem > input {
 	height: 30px;
 	width: 30px;
@@ -171,23 +174,18 @@ input[type="text"] {
 .xButton {
   /*display: none;*/
   display: inline-block;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   position: absolute;
   right: 10px;
-  top: 5px;
+  top: 10px;
   transition: transform 0.5s ease;
   cursor: pointer;
 }
 .xButton:hover {
   transform: rotate(90deg);
 }
-.xButton:hover > div {
-  box-shadow:0px 0px 1px 1px rgba(87,168,217,.8);
-}
-.xButton:hover > div.backslash {
-  z-index: -1;
-}
+
 .backslash, .frontslash {
   width: 100%;
   background: red;

@@ -2,7 +2,7 @@ Vue.component('todo-item',{
 	props:['todo'],
 	template: `
 	<transition name="fade">
-	<div class="todoItem">
+	<div class="todoItem hover-shadow">
 		<label class="switch">
 		  <input type="checkbox" v-model="todo.isFinished">
 		  <div class="flipper">
@@ -18,8 +18,9 @@ Vue.component('todo-item',{
 		</label>
 
 		<div class = "xButton" v-show="todo.isShowXBtn" v-on:click="deleteItem">
-			<div class="backslash"></div>
-		    <div class="frontslash"></div>
+			<svg width="30" height="30" version="1.1" xmlns="http://www.w3.org/2000/svg">
+			<polyline points="15 0, 15 30, 15 15, 0 15, 30 15" stroke="red" fill="transparent" stroke-width="5" transform="rotate(45 15 15)"/>
+			</svg>
 		 </div>
 	</div>
 	</transition>`,
@@ -61,13 +62,19 @@ var app = new Vue({
 				}
 			}
 		],
-		
+		isInputFocused: false
 	},
 	methods: {
 		addNewItem: function(){
 			if(this.newItemtext.length > 0){
 				this.todolist.push(this.createNewItem(this.newItemtext));
+				this.newItemtext='';
 			}
+		},
+		enterNewItem: function(event){
+			if(event.keyCode === 13) {
+		  		this.addNewItem();
+		  }
 		},
 		createNewItem: function(str) {
 			return {
@@ -85,6 +92,9 @@ var app = new Vue({
 		},
 		deleteItem: function(index){
 			this.todolist.splice(index,1);console.log("index",index);
+		},
+		inputFocused: function() {
+			this.isInputFocused = true;console.log('focused');
 		}
 	}
 })
